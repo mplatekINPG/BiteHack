@@ -67,22 +67,23 @@ void loop() {
   int SH7_cm = SHtoCM(SH7_volt);
 
   // PRINT DISTANCES - DO ZAKOMENTOWANIA POZNIEJ //
-    Serial.println("SH0: ");
-  Serial.print(SH0_cm);
-    Serial.println("SH1: ");
-  Serial.print(SH1_cm);
-    Serial.println("SH2: ");
-  Serial.print(SH2_cm);
-    Serial.println("SH3: ");
-  Serial.print(SH3_cm);
-    Serial.println("SH4: ");
-  Serial.print(SH4_cm);
-    Serial.println("SH5: ");
-  Serial.print(SH5_cm);
-    Serial.println("SH6: ");
-  Serial.print(SH6_cm);
-    Serial.println("SH7: ");
-  Serial.print(SH7_cm);
+    Serial.println("\nSH0: ");
+  Serial.print(SH0_volt);
+//    Serial.println("\nSH1: ");
+//  Serial.print(SH1_cm);
+//    Serial.println("\nSH2: ");
+//  Serial.print(SH2_cm);
+//    Serial.println("\nSH3: ");
+//  Serial.print(SH3_cm);
+//    Serial.println("\nSH4: ");
+//  Serial.print(SH4_cm);
+//    Serial.println("\nSH5: ");
+//  Serial.print(SH5_cm);
+//    Serial.println("\nSH6: ");
+//  Serial.print(SH6_cm);
+//    Serial.println("\nSH7: ");
+//  Serial.print(SH7_cm);
+  delay(1000);
 
   // REACTION WHEN DIST < 50 CM //
   
