@@ -7,9 +7,23 @@
 #define SH6 A6
 #define SH7 A7
 
-int SHtoCM (int value) {
-  if (value < 10) value = 10;
-  return ((67870.0 / (value - 3.0)) - 40.0);
+float SHtoCM (int value) {
+//  if (value < 510) 
+//    return 10.0;
+  float dyst = value*5/1023.0;
+  if (dyst >= 0.4 && dyst < 0.5)
+    return (-200*dyst+160);
+  if (dyst >= 0.5 && dyst < 0.65)
+    return (-67*dyst + 93);
+  if (dyst >= 0.65 && dyst < 0.75)
+    return (-100*dyst+115);
+  if (dyst >= 0.75 && dyst < 0.9)
+    return (-67*dyst + 90);
+  if (dyst >= 0.9 && dyst <1.3)
+    return (-25*dyst + 52.5);
+  if (dyst >= 1.3 && dyst < 2.5)
+    return (-10*dyst + 30);
+  return 0;
 }
 
 void setup() {
@@ -57,18 +71,18 @@ void loop() {
   int SH7_volt = analogRead(SH7);
 
   // VOLTAGE TO CM CONVERT //
-  int SH0_cm = SHtoCM(SH0_volt);
-  int SH1_cm = SHtoCM(SH1_volt);
-  int SH2_cm = SHtoCM(SH2_volt);
-  int SH3_cm = SHtoCM(SH3_volt);
-  int SH4_cm = SHtoCM(SH4_volt);
-  int SH5_cm = SHtoCM(SH5_volt);
-  int SH6_cm = SHtoCM(SH6_volt);
-  int SH7_cm = SHtoCM(SH7_volt);
+  float SH0_cm = SHtoCM(SH0_volt);
+  float SH1_cm = SHtoCM(SH1_volt);
+  float SH2_cm = SHtoCM(SH2_volt);
+  float SH3_cm = SHtoCM(SH3_volt);
+  float SH4_cm = SHtoCM(SH4_volt);
+  float SH5_cm = SHtoCM(SH5_volt);
+  float SH6_cm = SHtoCM(SH6_volt);
+  float SH7_cm = SHtoCM(SH7_volt);
 
   // PRINT DISTANCES - DO ZAKOMENTOWANIA POZNIEJ //
     Serial.println("\nSH0: ");
-  Serial.print(SH0_volt);
+  Serial.print(SH0_cm);
 //    Serial.println("\nSH1: ");
 //  Serial.print(SH1_cm);
 //    Serial.println("\nSH2: ");
