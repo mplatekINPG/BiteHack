@@ -1,3 +1,6 @@
+//#include <Bounce2.h>
+//Bounce debouncer = Bounce();
+
 #define SH0 A0
 #define SH1 A1
 #define SH2 A2
@@ -6,6 +9,72 @@
 #define SH5 A5
 #define SH6 A6
 #define SH7 A7
+
+//// SOUND FREQS //
+//#define buzzerPin 6
+//#define buttonPin 3
+//int count = 0;
+//
+//const int c = 261;
+//const int d = 294;
+//const int e = 329;
+//const int f = 349;
+//const int g = 391;
+//const int gS = 415;
+//const int a = 440;
+//const int aS = 455;
+//const int b = 466;
+//const int cH = 523;
+//const int cSH = 554;
+//const int dH = 587;
+//const int dSH = 622;
+//const int eH = 659;
+//const int fH = 698;
+//const int fSH = 740;
+//const int gH = 784;
+//const int gSH = 830;
+//const int aH = 880;
+//
+//
+//void beep(int note, int duration)
+//{
+//  //Play tone on buzzerPin
+//  tone(buzzerPin, note, duration);
+//  delay(duration);
+//  //Stop tone on buzzerPin
+//  noTone(buzzerPin);
+// 
+//  delay(50);
+//}
+//
+//void firstSection()
+//{
+//  beep(a, 500/2);
+//  beep(a, 500/2);    
+//  beep(a, 500/2);
+//  beep(f, 350/2);
+//  beep(cH, 150/2);  
+//  beep(a, 500/2);
+//  beep(f, 350/2);
+//  beep(cH, 150/2);
+//  beep(a, 650/2);
+// 
+//  delay(500/2);
+// 
+//  beep(eH, 500/2);
+//  beep(eH, 500/2);
+//  beep(eH, 500/2);  
+//  beep(fH, 350/2);
+//  beep(cH, 150/2);
+//  beep(gS, 500/2);
+//  beep(f, 350/2);
+//  beep(cH, 150/2);
+//  beep(a, 650/2);
+// 
+//  delay(500/2);
+//}
+// END OF SOUNDS //
+
 
 float SHtoCM (int value) {
 //  if (value < 510) 
@@ -35,7 +104,14 @@ void setup() {
   pinMode(SH5, INPUT);
   pinMode(SH6, INPUT);
   pinMode(SH7, INPUT);
-
+  
+//  pinMode(buttonPin, INPUT);
+//  pinMode(24, OUTPUT);
+//  digitalWrite(24, HIGH);
+//  pinMode(buzzerPin, OUTPUT);
+//
+//  debouncer.attach(buttonPin);
+//  debouncer.interval(50);
 /*
   int SH0_volt = 0;
   int SH1_volt = 0;
@@ -61,6 +137,20 @@ void setup() {
 
 void loop() {
   // ANALOG READ PART //
+//  debouncer.update();
+//  if (debouncer.read() == HIGH)
+//  {   
+//      count = 0;
+//      Serial.println("HIGH\n"); 
+//  }
+//  if (debouncer.read() == LOW);
+//  {   
+//      count = 1;
+//      Serial.println("LOW\n"); 
+//  }
+//  if (count == 0)
+//    firstSection();
+
   int SH0_volt = analogRead(SH0);
   int SH1_volt = analogRead(SH1);
   int SH2_volt = analogRead(SH2);
@@ -81,25 +171,30 @@ void loop() {
   float SH7_cm = SHtoCM(SH7_volt);
 
   // PRINT DISTANCES - DO ZAKOMENTOWANIA POZNIEJ //
-    Serial.println("\nSH0: ");
-  Serial.print(SH0_cm);
-//    Serial.println("\nSH1: ");
-//  Serial.print(SH1_cm);
-//    Serial.println("\nSH2: ");
-//  Serial.print(SH2_cm);
-//    Serial.println("\nSH3: ");
-//  Serial.print(SH3_cm);
-//    Serial.println("\nSH4: ");
-//  Serial.print(SH4_cm);
-//    Serial.println("\nSH5: ");
-//  Serial.print(SH5_cm);
-//    Serial.println("\nSH6: ");
-//  Serial.print(SH6_cm);
-//    Serial.println("\nSH7: ");
-//  Serial.print(SH7_cm);
-  delay(1000);
+    Serial.print("SH0: ");
+  Serial.println(SH0_cm);
+    Serial.print("SH1: ");
+  Serial.println(SH1_cm);
+    Serial.print("SH2: ");
+  Serial.println(SH2_cm);
+    Serial.print("SH3: ");
+  Serial.println(SH3_cm);
+    Serial.print("SH4: ");
+  Serial.println(SH4_cm);
+    Serial.print("SH5: ");
+  Serial.println(SH5_cm);
+    Serial.print("SH6: ");
+  Serial.println(SH6_cm);
+    Serial.print("SH7: ");
+  Serial.println(SH7_cm);
+  delay(500);
+  Serial.print("\n\n\n\n\n\n\n");
+
+  
 
   // REACTION WHEN DIST < 50 CM //
   
 
 }
+
+

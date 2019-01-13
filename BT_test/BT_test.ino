@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 
-#define SH_RX 2
-#define SH_TX 3
+#define SH_RX 52
+#define SH_TX 53
 
 SoftwareSerial SH_bl(SH_RX, SH_TX);
 int num = 0;
